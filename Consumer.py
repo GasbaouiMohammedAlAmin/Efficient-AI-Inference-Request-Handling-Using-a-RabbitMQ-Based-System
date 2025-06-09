@@ -31,7 +31,7 @@ def callback(ch, method, properties, body):
 def start_consumer():
     # Create connection
     connection = pika.BlockingConnection(
-        pika.URLParameters("amqps://dlluefkd:69bRQiu8XYM5fZzKkNuXoxsFmB18iCEk@woodpecker.rmq.cloudamqp.com/dlluefkd"))
+        pika.URLParameters("amqps://yourKey@woodpecker.rmq.cloudamqp.com/dlluefkd"))
     channel = connection.channel()
     # Create queue . For now queue name is factorial_process
     channel.queue_declare(queue='factorial_process', durable=True)
