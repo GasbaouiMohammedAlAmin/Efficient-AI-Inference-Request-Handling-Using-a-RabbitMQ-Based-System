@@ -11,12 +11,12 @@ The inference process is built on a modular and scalable architecture to support
 - The pre-trained AI model, trained on a task-specific dataset, performs the inference and returns results through the system pipeline.
 
 ## The command to install the libraries
-pip install flask redis pika requests
+- pip install flask redis pika requests
 ## External Tools
 - Redis Server (should be running locally on port 6379)
 - RabbitMQ Cloud instance (uses a CloudAMQP connection)
 ### Command to run Redis inside a Docker container
-docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+- docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
 ### Available endpoints:
 - http://127.0.0.1:5000/factorial?no=<number_to_claculate> 
 - http://127.0.0.1:5000/factorial/result?id=<id_request>
