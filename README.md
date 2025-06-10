@@ -10,7 +10,7 @@ The inference process is built on a modular and scalable architecture to support
 - A cloud-based RabbitMQ system, implementing the AMQP protocol, manages message delivery between producers (web service) and consumers (background workers).
 - The pre-trained AI model, trained on a task-specific dataset, performs the inference and returns results through the system pipeline.
 
-**For more details, visit the paper [the paper](url)**
+**For more details, visit the paper [the paper]()**
 ## The command to install the libraries
 - pip install flask redis pika requests
 ## External Tools
