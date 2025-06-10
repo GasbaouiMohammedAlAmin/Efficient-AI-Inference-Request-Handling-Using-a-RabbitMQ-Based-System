@@ -10,6 +10,7 @@ The inference process is built on a modular and scalable architecture to support
 - A cloud-based RabbitMQ system, implementing the AMQP protocol, manages message delivery between producers (web service) and consumers (background workers).
 - The pre-trained AI model, trained on a task-specific dataset, performs the inference and returns results through the system pipeline.
 
+**For more details, visit the paper [the paper](url)**
 ## The command to install the libraries
 - pip install flask redis pika requests
 ## External Tools
@@ -20,3 +21,21 @@ The inference process is built on a modular and scalable architecture to support
 ### Available endpoints:
 - http://127.0.0.1:5000/factorial?no=<number_to_claculate> 
 - http://127.0.0.1:5000/factorial/result?id=<id_request>
+### Workflow Summary Example:
+#### 1 User sends request:
+- Sends *GET /factorial?no=5* to the Flask app.
+
+#### 2 Flask server:
+
+- Generates a request ID.
+- Stores the input and "processing" status in Redis.
+- Sends a message to the RabbitMQ queue factorial_process.
+
+#### 3 Consumer:
+- Listens to the queue.
+- Picks up the message.
+- Calculates factorial (e.g., 5! = 120).
+- Update the body JSON through the post request. *POST /factorial/update*.
+
+#### 4 User retrieves result:
+- Sends *GET /factorial/result?id=<request_id>* and gets the final result **{input: 5, output: 120, status: done}**
