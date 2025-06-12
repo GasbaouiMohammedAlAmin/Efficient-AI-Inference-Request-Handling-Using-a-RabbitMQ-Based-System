@@ -39,3 +39,5 @@ The inference process is built on a modular and scalable architecture to support
 
 #### 4 User retrieves result:
 - Sends *GET /factorial/result?id=<request_id>* and gets the final result **{input: 5, output: 120, status: done}**
+
+#### Video explanation
